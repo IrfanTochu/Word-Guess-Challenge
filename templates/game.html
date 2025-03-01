@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Guess Challenge</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #ff5e62;
+        }
+        .word {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 5px;
+        }
+        .attempts {
+            font-size: 18px;
+            color: #555;
+        }
+        .guessed {
+            color: #ff5e62;
+        }
+        select, input, button {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff5e62;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Category: {{ category }}</h1>
+        <p>Word to Guess: <span class="word">{{ hidden_word }}</span></p>
+        <p class="attempts">Remaining Attempts: {{ attempts }}</p>
+        <p>Guessed Letters: <span class="guessed">{{ guessed_letters|join(', ') }}</span></p>
+
+        {% if attempts > 0 and "_" in hidden_word %}
+        <form method="POST">
+            <label>Guess a letter:</label>
+            <input type="text" name="guess" maxlength="1" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% elif "_" not in hidden_word %}
+        <p>🎉 You won! The correct word was: {{ word }}</p>
+        <a href="/">Play Again</a>
+        {% else %}
+        <p>😢 You lost! The correct word was: {{ word }}</p>
+        <a href="/">Play Again</a>
+        {% endif %}
+    </div>
+</body>
+</html>

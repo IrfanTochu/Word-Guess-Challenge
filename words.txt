@@ -1,0 +1,50 @@
+[Sports]
+football
+basketball
+tennis
+badminton
+boxing
+volleyball
+table tennis
+golf
+้hiking
+archery
+swimming
+cycling
+american football
+ice hockey
+baseball
+
+[Food]
+pizza
+burger
+pasta
+sushi
+salad
+tomyum
+ramen
+donut
+noodles
+chicken fried
+steak
+sandwich
+fried rice
+chocolate
+ice cream
+
+[Animals]
+elephant
+tiger
+giraffe
+kangaroo
+dolphin
+penguin
+owl
+lion
+cobra
+fox
+zebra
+panda
+crocodile
+rabbit
+wolf
